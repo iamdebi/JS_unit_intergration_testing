@@ -42,10 +42,15 @@ describe("calculator", function() {
     assert.equal(22.0, calculator.runningTotal);
   });
 
-  it("number concatenate", function() {
-    calculator.previousTotal = "1";
-    calculator.add("4");
-    assert.equal(5.0, calculator.runningTotal);
+  it("multi operation", function() {
+    calculator.numberClick("5");
+    calculator.operatorClick("-");
+    calculator.numberClick("4");
+    calculator.operatorClick("=");
+    calculator.operatorClick("*");
+    calculator.numberClick("2");
+    calculator.operatorClick("=");
+    assert.equal(2.0, calculator.runningTotal);
   });
 
   it("number concatenate", function() {
