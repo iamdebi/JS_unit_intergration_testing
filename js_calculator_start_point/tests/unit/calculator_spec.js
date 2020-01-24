@@ -42,7 +42,7 @@ describe("calculator", function() {
     assert.equal(22.0, calculator.runningTotal);
   });
 
-  it("multi operation", function() {
+  it("multi operation with equals", function() {
     calculator.numberClick("5");
     calculator.operatorClick("-");
     calculator.numberClick("4");
@@ -53,9 +53,23 @@ describe("calculator", function() {
     assert.equal(2.0, calculator.runningTotal);
   });
 
-  it("number concatenate", function() {
-    calculator.previousTotal = "1";
-    calculator.add("4");
-    assert.equal(5.0, calculator.runningTotal);
+  it("multi operation without equals", function() {
+    calculator.numberClick("5");
+    calculator.operatorClick("-");
+    calculator.numberClick("4");
+    calculator.operatorClick("*");
+    calculator.numberClick("2");
+    calculator.operatorClick("=");
+    assert.equal(2.0, calculator.runningTotal);
+  });
+
+  it("clear running total", function() {
+    calculator.numberClick("5");
+    calculator.operatorClick("-");
+    calculator.numberClick("4");
+    calculator.operatorClick("+");
+    calculator.clearClick();
+    calculator.operatorClick("=");
+    assert.equal(1.0, calculator.runningTotal);
   });
 });
