@@ -66,4 +66,33 @@ describe("calculator functionality", function() {
     element(by.css("#operator_equals")).click();
     expect(running_total.getAttribute("value")).to.eventually.equal("0.4");
   });
+
+  it("should display a large output", function() {
+    running_total = element(by.css("#running_total"));
+    element(by.css("#number9")).click();
+    element(by.css("#number9")).click();
+    element(by.css("#number9")).click();
+    element(by.css("#number9")).click();
+    element(by.css("#number9")).click();
+    element(by.css("#number9")).click();
+    element(by.css("#number9")).click();
+    element(by.css("#number9")).click();
+    element(by.css("#number9")).click();
+    element(by.css("#number9")).click();
+    element(by.css("#number9")).click();
+    element(by.css("#number9")).click();
+    element(by.css("#operator_multiply")).click();
+    element(by.css("#number5")).click();
+    element(by.css("#number5")).click();
+    element(by.css("#number5")).click();
+    element(by.css("#number5")).click();
+    element(by.css("#number5")).click();
+    element(by.css("#number5")).click();
+    element(by.css("#number5")).click();
+    element(by.css("#number5")).click();
+    element(by.css("#operator_equals")).click();
+    expect(running_total.getAttribute("value")).to.eventually.equal(
+      "55555554999944450000"
+    );
+  });
 });
